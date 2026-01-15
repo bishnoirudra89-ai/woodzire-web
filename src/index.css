@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Woodzire Luxury Retail Design System - "Vogue" Aesthetic */
+
+@layer base {
+  :root {
+    /* Core Light Palette - Alabaster Luxury */
+    --background: 40 20% 97%; /* #FAF9F6 Alabaster */
+    --foreground: 0 0% 10%; /* #1A1A1A Charcoal */
+    
+    /* Card & Surface */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    
+    /* Primary - Charcoal */
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Warm Neutral */
+    --secondary: 40 15% 95%;
+    --secondary-foreground: 0 0% 10%;
+    
+    /* Muted */
+    --muted: 40 10% 94%;
+    --muted-foreground: 0 0% 45%;
+    
+    /* Accent - Rich Gold */
+    --accent: 35 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input - Minimal */
+    --border: 40 10% 90%;
+    --input: 40 10% 96%;
+    --ring: 0 0% 10%;
+    
+    --radius: 0rem; /* Sharp edges for luxury */
+    
+    /* Custom Luxury Tokens */
+    --gold: 35 70% 45%;
+    --gold-light: 38 75% 55%;
+    --gold-dark: 30 65% 35%;
+    --charcoal: 0 0% 10%;
+    --alabaster: 40 20% 97%;
+    --ivory: 40 35% 97%;
+    --smoke: 0 0% 75%;
+    
+    /* Glassmorphism */
+    --glass-bg: 0 0% 100% / 0.85;
+    --glass-border: 0 0% 100% / 0.3;
+    
+    /* Shadows - Ultra Soft */
+    --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.03);
+    --shadow-card: 0 4px 40px rgba(0, 0, 0, 0.04);
+    --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.06);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 0 0% 10%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 15% 97%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 40 10% 92%;
+    --sidebar-ring: 0 0% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply font-normal tracking-tight text-foreground;
+  }
+
+  p {
+    @apply leading-relaxed tracking-wide text-muted-foreground;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-elegant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* Minimal Input Styling - Bottom border only */
+  input, textarea, select {
+    @apply border-0 border-b border-border bg-transparent focus:border-charcoal focus:ring-0 transition-colors duration-300;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  /* Luxury Glass Navbar */
+  .nav-glass {
+    @apply transition-all duration-500;
+    background: transparent;
+  }
+
+  .nav-glass.scrolled {
+    background: hsl(0 0% 100% / 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  /* Editorial Card - Magazine Style */
+  .card-editorial {
+    @apply relative overflow-hidden transition-all duration-700;
+    background: transparent;
+  }
+
+  .card-editorial:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Product Info Overlay */
+  .product-overlay {
+    @apply absolute inset-0 flex flex-col justify-end p-8 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  }
+
+  .card-editorial:hover .product-overlay {
+    @apply opacity-100;
+  }
+
+  /* Pill Button - Luxury CTA */
+  .btn-pill {
+    @apply px-8 py-4 bg-charcoal text-white font-sans text-xs tracking-[0.2em] uppercase rounded-full transition-all duration-300;
+  }
+
+  .btn-pill:hover {
+    @apply bg-foreground;
+    transform: translateY(-2px);
+  }
+
+  /* Outline Pill Button */
+  .btn-pill-outline {
+    @apply px-8 py-4 bg-transparent border border-white text-white font-sans text-xs tracking-[0.2em] uppercase rounded-full transition-all duration-300;
+  }
+
+  .btn-pill-outline:hover {
+    @apply bg-white text-charcoal;
+  }
+
+  /* Full Width CTA */
+  .btn-cta-full {
+    @apply w-full py-5 bg-charcoal text-white font-sans text-xs tracking-[0.2em] uppercase transition-all duration-300;
+  }
+
+  .btn-cta-full:hover {
+    @apply bg-foreground;
+  }
+
+  /* Parallax Container */
+  .parallax-container {
+    @apply relative overflow-hidden;
+    transform-style: preserve-3d;
+  }
+
+  .parallax-bg {
+    @apply absolute inset-0 w-full h-full object-cover;
+    will-change: transform;
+  }
+
+  /* Bento Grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    gap: 1rem;
+  }
+
+  .bento-grid > *:nth-child(4n + 1) {
+    grid-row: span 2;
+  }
+
+  @media (max-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+    .bento-grid > *:nth-child(4n + 1) {
+      grid-row: span 1;
+    }
+  }
+
+  /* Image Zoom on Hover */
+  .image-zoom {
+    @apply overflow-hidden;
+  }
+
+  .image-zoom img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Minimal Divider */
+  .divider {
+    @apply w-full h-px bg-border;
+  }
+
+  /* Section Spacing - Double Padding */
+  .section-luxury {
+    @apply py-32 md:py-40;
+  }
+
+  /* Custom Scrollbar - Minimal */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  /* Animation Delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
+  /* Perspective */
+  .perspective-1000 { perspective: 1000px; }
+  .perspective-2000 { perspective: 2000px; }
+
+  /* Transform Styles */
+  .preserve-3d { transform-style: preserve-3d; }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Text shadow for depth */
+  .text-shadow-sm {
+    text-shadow: 0 2px 4px hsl(30 20% 30% / 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px hsl(30 20% 30% / 0.15);
+  }
+
+  /* Safe area for mobile bottom nav */
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* Page bottom padding for mobile nav */
+  .pb-mobile-nav {
+    @apply pb-20 md:pb-0;
+  }
+}

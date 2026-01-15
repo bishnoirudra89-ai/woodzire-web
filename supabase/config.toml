@@ -1,0 +1,25 @@
+project_id = "shdpjrqlselujsdxtnry"
+
+[functions.send-inquiry]
+verify_jwt = false
+
+[functions.send-order-notification]
+verify_jwt = false
+
+[functions.get-mapbox-token]
+verify_jwt = false
+
+[functions.send-gift-card-email]
+verify_jwt = false
+
+[functions.send-cart-reminder]
+verify_jwt = false
+
+[functions.send-invoice]
+verify_jwt = false
+
+[functions.send-campaign]
+verify_jwt = false
+
+[functions.send-push-notification]
+verify_jwt = false
