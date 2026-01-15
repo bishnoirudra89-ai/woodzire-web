@@ -78,7 +78,7 @@ const Auth = () => {
         }
 
         const { error } = await supabase.auth.resetPasswordForEmail(formData.email, {
-          redirectTo: `${window.location.origin}/auth/update-password`,
+          redirectTo: `https://woodzire-web.vercel.app/auth/update-password`,
         });
 
         if (error) {

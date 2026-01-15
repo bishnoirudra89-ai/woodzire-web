@@ -17,6 +17,7 @@ import Preloader from "@/components/Preloader";
 import PageWrapper from "@/components/PageWrapper";
 import PromotionalBanner from "@/components/PromotionalBanner";
 import BottomNavigation from "@/components/BottomNavigation";
+import AuthUpdatePasswordPage from "./pages/auth/UpdatePassword";
 
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -31,7 +32,7 @@ const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const Auth = lazy(() => import("./pages/Auth"));
-const UpdatePassword = lazy(() => import("./pages/UpdatePassword"));
+const UpdatePassword = lazy(() => import("./pages/auth/UpdatePassword"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 const OrderTracker = lazy(() => import("./pages/OrderTracker"));
 const EmailPreferences = lazy(() => import("./pages/EmailPreferences"));
@@ -68,13 +69,13 @@ const AnimatedRoutes = () => {
           <Route path="/dashboard" element={<PageWrapper><Dashboard /></PageWrapper>} />
           <Route path="/admin" element={<PageWrapper><AdminDashboard /></PageWrapper>} />
           <Route path="/auth" element={<PageWrapper><Auth /></PageWrapper>} />
-          <Route path="/auth/update-password" element={<PageWrapper><UpdatePassword /></PageWrapper>} />
           <Route path="/checkout" element={<PageWrapper><Checkout /></PageWrapper>} />
           <Route path="/track" element={<PageWrapper><OrderTracker /></PageWrapper>} />
           <Route path="/email-preferences" element={<PageWrapper><EmailPreferences /></PageWrapper>} />
           <Route path="/gift-cards" element={<PageWrapper><GiftCards /></PageWrapper>} />
           <Route path="/payment" element={<PageWrapper><Payment /></PageWrapper>} />
           <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+          <Route path="/auth/update-password" element={<UpdatePassword />} />
         </Routes>
       </Suspense>
     </AnimatePresence>
